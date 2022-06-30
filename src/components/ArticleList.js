@@ -4,41 +4,38 @@ import React, { useEffect, useState } from "react";
 
 const ArticleList = () => {
 	const [newsData, setNewsData] = useState([]);
-	// const options = {
-	// 	method: "GET",
-	// 	url: "https://google-news.p.rapidapi.com/v1/top_headlines",
-	// 	params: { lang: "en", country: "US" },
-	// 	headers: {
-	// 		"X-RapidAPI-Key": "48d2ae991c834a6d9f930994df4a3515",
-	// 		"X-RapidAPI-Host": "google-news.p.rapidapi.com",
-	// 	},
-	// };
-	console.log(process.env.REACT_APP_API, process.env.NAME, "here api");
+	const options = {
+		method: "GET",
+		url: "https://api.newscatcherapi.com/v2/search",
+		params: { q: "sports", lang: "en", page: "1" },
+		headers: {
+			"X-api-Key": "SrZgkrznT5IxspS2B_n1quG42qz18K64TAkRdwm1KP4",
+		},
+	};
+
 	useEffect(() => {
 		axios
-			.get(
-				`https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=48d2ae991c834a6d9f930994df4a3515`
-			)
+			.request(options)
 			.then(function (response) {
-				console.log(response.data, "here");
-				setNewsData(response.data);
+				setNewsData(response?.data);
+				console.log(response?.data, "data here");
 			})
 			.catch(function (error) {
 				console.error(error);
 			});
 	}, []);
 
-	console.log(newsData, "data here");
+	// console.log(newsData, "data here");
 
 	return (
 		<div className="article-wrapper">
 			<div className="article-list">
 				{newsData &&
-					newsData?.articles?.map((news, index) => (
-						<div className="article1" key={index}>
+					newsData?.articles?.map((news) => (
+						<div className="article1" key={news.id}>
 							<h1>{news?.title}</h1>
-							<Image src={news?.urlToImage} />
-							<p>{news?.content}</p>
+							<Image src={news?.media} />
+							<p>{news?.summary}</p>
 						</div>
 					))}
 			</div>
