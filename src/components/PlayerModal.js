@@ -4,9 +4,9 @@ import ReactPlayer from "react-player";
 
 const PlayerModal = (props) => {
 	const { modalOpen, setModalOpen, videoUrl } = props;
-	const handleModalOpen = () => {
-		setModalOpen(true);
-	};
+	// const handleModalOpen = () => {
+	// 	setModalOpen(true);
+	// };
 	const handleModalClose = () => {
 		setModalOpen(false);
 	};
