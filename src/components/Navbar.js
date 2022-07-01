@@ -1,16 +1,38 @@
-import React from "react";
-import Toolbar from "@material-ui/core/Toolbar";
 // import AppBar from "@material-ui/core/AppBar";
-import Typography from "@material-ui/core/Typography";
+import { Tab, Tabs } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+	const navigate = useNavigate();
 	return (
 		<div position="sticky" style={{ backgroundColor: "#89ABE3FF" }}>
-			<Toolbar>
-				<Typography variant="h6" style={{ color: "#FCF6F5FF" }}>
-					News Feed
-				</Typography>
-			</Toolbar>
+			<Tabs centered>
+				<Tab
+					style={{ color: "#FCF6F5FF" }}
+					onClick={() => navigate("/")}
+					label={"Top Headlines"}
+				></Tab>
+				<Tab
+					style={{ color: "#FCF6F5FF" }}
+					onClick={() => navigate("/entertainment")}
+					label={"Entertainment"}
+				></Tab>
+				<Tab
+					style={{ color: "#FCF6F5FF" }}
+					onClick={() => navigate("/business")}
+					label={"Business"}
+				></Tab>
+				<Tab
+					style={{ color: "#FCF6F5FF" }}
+					onClick={() => navigate("/sports")}
+					label={"Sports"}
+				></Tab>
+				<Tab
+					style={{ color: "#FCF6F5FF" }}
+					onClick={() => navigate("/videos")}
+					label={"Videos"}
+				></Tab>
+			</Tabs>
 		</div>
 	);
 };

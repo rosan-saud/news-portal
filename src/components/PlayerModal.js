@@ -19,9 +19,11 @@ const PlayerModal = (props) => {
 				aria-describedby="modal-modal-description"
 			>
 				<Box className="modal-Box">
-					<Typography id="modal-modal-title" variant="h6" component="h2">
-						Text in a modal
-					</Typography>
+					<Typography
+						id="modal-modal-title"
+						variant="h6"
+						component="h2"
+					></Typography>
 					<ReactPlayer url={videoUrl} controls height="100%" width={"100%"} />
 					<Button
 						style={{
@@ -29,12 +31,11 @@ const PlayerModal = (props) => {
 							bottom: "10px",
 							right: "10px",
 						}}
-						variant="text"
+						variant="contained"
 						color="secondary"
 						onClick={handleModalClose}
 					>
-						{" "}
-						close
+						{"close"}
 					</Button>
 				</Box>
 			</Modal>
